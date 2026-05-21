@@ -1,0 +1,386 @@
+[
+    {
+        "pergunta": "girafa",
+        "idioma": "pt",
+        "resposta": "A girafa é o animal mais alto do mundo!",
+        "data": "17/05/2026 22:26:42"
+    },
+    {
+        "pergunta": "elefante",
+        "idioma": "pt",
+        "resposta": "Elefantes são os maiores animais terrestres!",
+        "data": "17/05/2026 22:26:47"
+    },
+    {
+        "pergunta": "arara",
+        "idioma": "pt",
+        "resposta": "Araras conseguem imitar sons e são aves muito inteligentes!",
+        "data": "17/05/2026 22:26:51"
+    },
+    {
+        "pergunta": "arara",
+        "idioma": "pt",
+        "resposta": "Araras conseguem imitar sons e são aves muito inteligentes!",
+        "data": "17/05/2026 22:26:55"
+    },
+    {
+        "pergunta": "leão",
+        "idioma": "en",
+        "resposta": "The lion is known as the king of the jungle!",
+        "data": "17/05/2026 22:27:09"
+    },
+    {
+        "pergunta": "zebra",
+        "idioma": "en",
+        "resposta": "No two zebras have the same stripe pattern!",
+        "data": "17/05/2026 22:27:13"
+    },
+    {
+        "pergunta": "elefante",
+        "idioma": "en",
+        "resposta": "Elephants are the largest land animals!",
+        "data": "17/05/2026 22:27:16"
+    },
+    {
+        "pergunta": "leão",
+        "idioma": "en",
+        "resposta": "The lion is known as the king of the jungle!",
+        "data": "17/05/2026 22:27:19"
+    },
+    {
+        "pergunta": "leão",
+        "idioma": "en",
+        "resposta": "The lion is known as the king of the jungle!",
+        "data": "17/05/2026 22:27:22"
+    },
+    {
+        "pergunta": "tigre",
+        "idioma": "pt",
+        "resposta": "Cada tigre possui listras únicas!",
+        "data": "17/05/2026 23:58:06"
+    },
+    {
+        "pergunta": "arara",
+        "idioma": "pt",
+        "resposta": "Araras conseguem imitar sons e são aves muito inteligentes!",
+        "data": "17/05/2026 23:59:07"
+    },
+    {
+        "pergunta": "zebra",
+        "idioma": "pt",
+        "resposta": "Nenhuma zebra possui listras iguais!",
+        "data": "17/05/2026 23:59:18"
+    },
+    {
+        "pergunta": "o que o leão come",
+        "idioma": "pt",
+        "resposta": "O leão é conhecido como o rei da selva!",
+        "data": "17/05/2026 23:59:29"
+    },
+    {
+        "pergunta": "tigre.",
+        "idioma": "pt",
+        "resposta": "Cada tigre possui listras únicas!",
+        "data": "18/05/2026 08:37:43"
+    },
+    {
+        "pergunta": "girafa",
+        "idioma": "en",
+        "resposta": "The giraffe is the tallest animal in the world!",
+        "data": "18/05/2026 08:38:55"
+    },
+    {
+        "pergunta": "arara",
+        "idioma": "pt",
+        "resposta": "Araras conseguem imitar sons e são aves muito inteligentes!",
+        "data": "18/05/2026 11:40:54"
+    },
+    {
+        "pergunta": "elefante",
+        "idioma": "pt",
+        "resposta": "Elefantes são os maiores animais terrestres!",
+        "data": "18/05/2026 11:41:09"
+    },
+    {
+        "pergunta": "arara",
+        "idioma": "pt",
+        "resposta": "Araras conseguem imitar sons e são aves muito inteligentes!",
+        "data": "18/05/2026 12:01:08"
+    },
+    {
+        "pergunta": "tigre",
+        "idioma": "pt",
+        "resposta": "Cada tigre possui listras únicas!",
+        "data": "18/05/2026 12:01:23"
+    },
+    {
+        "pergunta": "girafa",
+        "idioma": "pt",
+        "resposta": "A girafa é o animal mais alto do mundo!",
+        "data": "19/05/2026 10:03:31"
+    },
+    {
+        "pergunta": "girafa",
+        "idioma": "pt",
+        "resposta": "A girafa é o animal mais alto do mundo!",
+        "data": "19/05/2026 10:03:33"
+    },
+    {
+        "pergunta": "girafa",
+        "idioma": "pt",
+        "resposta": "A girafa é o animal mais alto do mundo!",
+        "data": "19/05/2026 10:03:46"
+    },
+    {
+        "pergunta": "tigre",
+        "idioma": "pt",
+        "resposta": "Cada tigre possui listras únicas!",
+        "data": "19/05/2026 10:27:54"
+    },
+    {
+        "pergunta": "elefante",
+        "idioma": "pt",
+        "resposta": "Elefantes são os maiores animais terrestres!",
+        "data": "19/05/2026 10:33:49"
+    },
+    {
+        "pergunta": "girafa",
+        "idioma": "pt",
+        "resposta": "A girafa é o animal mais alto do mundo!",
+        "data": "19/05/2026 10:33:55"
+    },
+    {
+        "pergunta": "tigre",
+        "idioma": "pt",
+        "resposta": "Cada tigre possui listras únicas!",
+        "data": "19/05/2026 10:34:04"
+    },
+    {
+        "pergunta": "elefante",
+        "idioma": "pt",
+        "resposta": "Elefantes são os maiores animais terrestres!",
+        "data": "19/05/2026 10:42:15"
+    },
+    {
+        "pergunta": "tigre",
+        "idioma": "pt",
+        "resposta": "Cada tigre possui listras únicas!",
+        "data": "19/05/2026 10:42:25"
+    },
+    {
+        "pergunta": "girafa",
+        "idioma": "pt",
+        "resposta": "A girafa é o animal mais alto do mundo!",
+        "data": "19/05/2026 10:42:35"
+    },
+    {
+        "pergunta": "zebra",
+        "idioma": "pt",
+        "resposta": "Nenhuma zebra possui listras iguais!",
+        "data": "19/05/2026 10:42:44"
+    },
+    {
+        "pergunta": "arara",
+        "idioma": "pt",
+        "resposta": "Araras conseguem imitar sons e são aves muito inteligentes!",
+        "data": "19/05/2026 10:42:51"
+    },
+    {
+        "pergunta": "leão",
+        "idioma": "pt",
+        "resposta": "O leão é conhecido como o rei da selva!",
+        "data": "19/05/2026 10:42:59"
+    },
+    {
+        "pergunta": "elefante",
+        "idioma": "pt",
+        "resposta": "Elefantes são os maiores animais terrestres!",
+        "data": "19/05/2026 10:51:55"
+    },
+    {
+        "pergunta": "leão",
+        "idioma": "pt",
+        "resposta": "O leão é conhecido como o rei da selva!",
+        "data": "19/05/2026 10:51:58"
+    },
+    {
+        "pergunta": "arara",
+        "idioma": "pt",
+        "resposta": "Araras conseguem imitar sons e são aves muito inteligentes!",
+        "data": "19/05/2026 10:53:45"
+    },
+    {
+        "pergunta": "girafa",
+        "idioma": "pt",
+        "resposta": "A girafa é o animal mais alto do mundo!",
+        "data": "19/05/2026 10:54:30"
+    },
+    {
+        "pergunta": "zebra",
+        "idioma": "pt",
+        "resposta": "Nenhuma zebra possui listras iguais!",
+        "data": "19/05/2026 10:54:43"
+    },
+    {
+        "pergunta": "zebra",
+        "idioma": "pt",
+        "resposta": "Nenhuma zebra possui listras iguais!",
+        "data": "19/05/2026 10:54:44"
+    },
+    {
+        "pergunta": "tigre",
+        "idioma": "en",
+        "resposta": "Each tiger has unique stripes!",
+        "data": "19/05/2026 11:00:29"
+    },
+    {
+        "pergunta": "arara",
+        "idioma": "pt",
+        "resposta": "Araras conseguem imitar sons e são aves muito inteligentes!",
+        "data": "19/05/2026 11:01:24"
+    },
+    {
+        "pergunta": "como fazer a unha",
+        "idioma": "pt",
+        "resposta": "Desculpe, não entendi sua pergunta.",
+        "data": "19/05/2026 11:01:50"
+    },
+    {
+        "pergunta": "como fazer a unha",
+        "idioma": "pt",
+        "resposta": "Desculpe, não entendi sua pergunta.",
+        "data": "19/05/2026 11:02:00"
+    },
+    {
+        "pergunta": "como fazer a unha",
+        "idioma": "pt",
+        "resposta": "Desculpe, não entendi sua pergunta.",
+        "data": "19/05/2026 11:02:01"
+    },
+    {
+        "pergunta": "como fazer a unha",
+        "idioma": "pt",
+        "resposta": "Desculpe, não entendi sua pergunta.",
+        "data": "19/05/2026 11:02:05"
+    },
+    {
+        "pergunta": "leão",
+        "idioma": "pt",
+        "resposta": "O leão é conhecido como o rei da selva!",
+        "data": "19/05/2026 11:42:31"
+    },
+    {
+        "pergunta": "tigre",
+        "idioma": "pt",
+        "resposta": "Cada tigre possui listras únicas!",
+        "data": "19/05/2026 11:42:44"
+    },
+    {
+        "pergunta": "arara",
+        "idioma": "pt",
+        "resposta": "Araras conseguem imitar sons e são aves muito inteligentes!",
+        "data": "19/05/2026 11:42:58"
+    },
+    {
+        "pergunta": "elefante",
+        "idioma": "pt",
+        "resposta": "Elefantes são os maiores animais terrestres!",
+        "data": "19/05/2026 11:43:05"
+    },
+    {
+        "pergunta": "zebra",
+        "idioma": "pt",
+        "resposta": "Nenhuma zebra possui listras iguais!",
+        "data": "19/05/2026 11:43:17"
+    },
+    {
+        "pergunta": "girafa",
+        "idioma": "pt",
+        "resposta": "A girafa é o animal mais alto do mundo!",
+        "data": "19/05/2026 11:43:32"
+    },
+    {
+        "pergunta": "leão",
+        "idioma": "pt",
+        "resposta": "O leão é conhecido como o rei da selva!",
+        "data": "19/05/2026 11:52:56"
+    },
+    {
+        "pergunta": "leão",
+        "idioma": "pt",
+        "resposta": "O leão é conhecido como o rei da selva!",
+        "data": "19/05/2026 11:58:19"
+    },
+    {
+        "pergunta": "elefante",
+        "idioma": "pt",
+        "resposta": "Elefantes são os maiores animais terrestres!",
+        "data": "20/05/2026 10:57:23"
+    },
+    {
+        "pergunta": "tigre",
+        "idioma": "pt",
+        "resposta": "Cada tigre possui listras únicas!",
+        "data": "20/05/2026 10:57:32"
+    },
+    {
+        "pergunta": "tigre",
+        "idioma": "pt",
+        "resposta": "Cada tigre possui listras únicas!",
+        "data": "20/05/2026 12:14:46"
+    },
+    {
+        "pergunta": "leão",
+        "idioma": "pt",
+        "resposta": "O leão é conhecido como o rei da selva!",
+        "data": "20/05/2026 12:14:57"
+    },
+    {
+        "pergunta": "leão",
+        "idioma": "pt",
+        "resposta": "O leão é conhecido como o rei da selva!",
+        "data": "20/05/2026 12:18:38"
+    },
+    {
+        "pergunta": "elefante",
+        "idioma": "pt",
+        "resposta": "Elefantes são os maiores animais terrestres!",
+        "data": "20/05/2026 12:20:12"
+    },
+    {
+        "pergunta": "leão",
+        "idioma": "pt",
+        "resposta": "O leão é conhecido como o rei da selva!",
+        "data": "20/05/2026 12:46:22"
+    },
+    {
+        "pergunta": "leão",
+        "idioma": "pt",
+        "resposta": "O leão é conhecido como o rei da selva!",
+        "data": "20/05/2026 12:46:26"
+    },
+    {
+        "pergunta": "arara",
+        "idioma": "pt",
+        "resposta": "Araras conseguem imitar sons e são aves muito inteligentes!",
+        "data": "20/05/2026 12:46:41"
+    },
+    {
+        "pergunta": "elefante",
+        "idioma": "en",
+        "resposta": "Elephants are the largest land animals!",
+        "data": "20/05/2026 13:31:53"
+    },
+    {
+        "pergunta": "elefante",
+        "idioma": "en",
+        "resposta": "Elephants are the largest land animals!",
+        "data": "20/05/2026 13:31:53"
+    },
+    {
+        "pergunta": "arara",
+        "idioma": "en",
+        "resposta": "Macaws can imitate sounds and are very intelligent birds!",
+        "data": "20/05/2026 13:33:21"
+    }
+]
