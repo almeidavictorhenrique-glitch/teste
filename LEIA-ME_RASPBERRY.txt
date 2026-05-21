@@ -1,0 +1,62 @@
+==========================================================
+  INTERACX - COMO RODAR NO RASPBERRY PI 3
+==========================================================
+
+1) DESCOMPACTAR
+   Copie o arquivo interacx.zip para o Raspberry e descompacte:
+
+       unzip interacx.zip
+       cd interacx
+
+2) INSTALAR AS DEPENDENCIAS
+   (precisa de internet no Pi)
+
+       pip3 install -r requirements.txt
+
+   Se der erro de "externally-managed-environment", use:
+
+       pip3 install --break-system-packages -r requirements.txt
+
+3) LIGACAO DO SENSOR DHT11 (importante!)
+   O codigo usa o pino GPIO17 (pino fisico 11).
+
+       - VCC  do sensor  -> 3.3V  (pino fisico 1)
+       - GND  do sensor  -> GND   (pino fisico 6)
+       - DATA do sensor  -> GPIO17 (pino fisico 11)
+
+   Coloque um resistor de 4.7k a 10k ohm entre DATA e 3.3V.
+   (Modulos DHT11 de 3 pernas geralmente ja tem esse resistor embutido.)
+
+4) RODAR
+
+       python3 app.py
+
+   Voce deve ver no terminal:
+       THREAD DOS SENSORES INICIOU
+       DHT LIDO: 25 60
+       ESTADO FINAL: {...}
+
+5) ABRIR NA TELA
+   No proprio Pi:            http://localhost:5000
+   De outro computador:      http://IP-DO-PI:5000
+   (descubra o IP com: hostname -I)
+
+----------------------------------------------------------
+  REGRA DA TEMPERATURA -> VOUCHER
+----------------------------------------------------------
+   >= 28 C   -> voucher CALOR  (15% bebidas geladas)
+   18 a 27 C -> voucher LANCHE (15% lanches)
+   <  18 C   -> voucher FRIO   (15% bebidas quentes)
+
+   O codigo do voucher (ZOOxxxxx) so e gerado quando o
+   clima MUDA de faixa, e vale 30 minutos.
+
+----------------------------------------------------------
+  SE A TEMPERATURA NAO APARECER
+----------------------------------------------------------
+   - Confira a fiacao (passo 3) e o resistor de pull-up.
+   - Teste o sensor sozinho:   python3 ler_dht.py
+     Se imprimir a temperatura, o sensor esta OK.
+   - Mensagens "Falha DHT (tentando de novo)" sao normais;
+     o DHT11 falha de vez em quando e se recupera sozinho.
+==========================================================

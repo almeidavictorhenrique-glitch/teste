@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Pacotes</title>
+
+<style>
+
+body{
+    margin:0;
+    font-family:Arial;
+    background:
+    linear-gradient(rgba(0,0,0,0.4), rgba(0,0,0,0.4)),
+    url("/static/imagens/fundo.png");
+
+    background-size:cover;
+    color:white;
+}
+
+.container{
+
+    display:flex;
+
+    flex-direction:column;
+
+    align-items:center;
+
+    justify-content:center;
+
+    min-height:100vh;
+
+    padding:40px;
+}
+
+h1{
+
+    font-size:60px;
+
+    margin-bottom:50px;
+
+    text-shadow:3px 3px 10px rgba(0,0,0,0.5);
+}
+
+.cards{
+
+    display:flex;
+
+    gap:30px;
+
+    flex-wrap:wrap;
+
+    justify-content:center;
+}
+
+.card{
+
+    width:320px;
+
+    background:rgba(255,255,255,0.12);
+
+    backdrop-filter:blur(12px);
+
+    border-radius:25px;
+
+    padding:30px;
+
+    text-align:center;
+
+    border:2px solid rgba(255,255,255,0.15);
+
+    transition:0.3s;
+}
+
+.card:hover{
+
+    transform:translateY(-10px);
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.35);
+}
+
+.card h2{
+
+    font-size:32px;
+
+    margin-bottom:20px;
+}
+
+.card p{
+
+    font-size:20px;
+
+    line-height:1.5;
+}
+
+.botao-voltar{
+
+    background:rgba(255,255,255,0.15);
+
+    backdrop-filter:blur(10px);
+
+    -webkit-backdrop-filter:blur(10px);
+
+    border:2px solid rgba(255,255,255,0.25);
+
+    color:white;
+
+    padding:20px 45px;
+
+    border-radius:18px;
+
+    font-size:20px;
+
+    cursor:pointer;
+
+    box-shadow:0 8px 20px rgba(0,0,0,0.25);
+
+    transition:0.3s;
+
+    margin-top: 30px;
+}
+
+.botao-prata:hover{
+
+    transform:scale(1.05);
+
+    background:rgba(255,255,255,0.22);
+
+}
+
+</style>
+
+</head>
+<body>
+
+<div class="container">
+
+<h1>
+
+{% if idioma == "en" %}
+
+Zoo Experiences
+
+{% else %}
+
+Experiências do Zoológico
+
+{% endif %}
+
+</h1>
+
+<div class="cards">
+
+    <!-- CARD 1 -->
+    <div class="card">
+
+        <h2>
+
+        {% if idioma == "en" %}
+
+        🎟️ Tour Packages
+
+        {% else %}
+
+        🎟️ Pacotes de Passeio
+
+        {% endif %}
+
+        </h2>
+
+        <p>
+
+        {% if idioma == "en" %}
+
+        Guided tours, VIP experiences and educational visits around the zoo.
+
+        {% else %}
+
+        Passeios guiados, experiências VIP e visitas educativas pelo zoológico.
+
+        {% endif %}
+
+        </p>
+
+    </div>
+
+    <!-- CARD 2 -->
+    <div class="card">
+
+        <h2>
+
+        {% if idioma == "en" %}
+
+        🦁 Animal Interaction
+
+        {% else %}
+
+        🦁 Interação com Animais
+
+        {% endif %}
+
+        </h2>
+
+        <p>
+
+        {% if idioma == "en" %}
+
+        Feed, interact and learn more about incredible species.
+
+        {% else %}
+
+        Alimente, interaja e conheça espécies incríveis de perto.
+
+        {% endif %}
+
+        </p>
+
+    </div>
+
+    <!-- CARD 3 -->
+    <div class="card">
+
+        <h2>
+
+        {% if idioma == "en" %}
+
+        🛍️ Zoo Store
+
+        {% else %}
+
+        🛍️ Loja do Zoológico
+
+        {% endif %}
+
+        </h2>
+
+        <p>
+
+        {% if idioma == "en" %}
+
+        Exclusive plushies, souvenirs and themed zoo products.
+
+        {% else %}
+
+        Pelúcias exclusivas, lembranças e produtos temáticos do zoológico.
+
+        {% endif %}
+
+        </p>
+
+    </div>
+
+</div>
+
+<button class="botao-voltar" onclick="voltarInteracoes()">
+
+{% if idioma == "en" %}
+
+⬅ Back
+
+{% else %}
+
+⬅ Voltar
+
+{% endif %}
+
+</button>
+</div>
+
+<script>
+
+function voltarInteracoes(){
+  sessionStorage.setItem("voltarPara", "interacoes");
+  window.location.href = "/";
+}
+
+</script>
+</body>
+</html>

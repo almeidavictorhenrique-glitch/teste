@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+<title>Experiência InteracX</title>
+
+<style>
+body{
+    margin:0;
+    font-family: Arial, sans-serif;
+    background:
+        linear-gradient(rgba(0,0,0,0.55), rgba(0,0,0,0.55)),
+        url("/static/imagens/fundo.png") no-repeat center center fixed;    color:white;
+    text-align:center;
+    padding:30px;
+}
+
+.card{
+    max-width:700px;
+    margin:40px auto;
+    background:rgba(255,255,255,0.15);
+    padding:30px;
+    border-radius:25px;
+    backdrop-filter: blur(8px);
+}
+
+h1{
+    font-size:38px;
+}
+
+p{
+    font-size:20px;
+    line-height:1.5;
+}
+
+.voucher{
+    background:white;
+    color:#1b5e20;
+    padding:20px;
+    border-radius:18px;
+    margin-top:25px;
+    font-size:28px;
+    font-weight:bold;
+}
+
+.item{
+    background:rgba(255,255,255,0.18);
+    margin:15px 0;
+    padding:15px;
+    border-radius:15px;
+    font-size:20px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="card">
+
+    <h1>Obrigado por usar o InteracX!</h1>
+
+    <p>
+        Continue sua experiência pelo celular com informações do zoológico,
+        mapa interativo e voucher especial.
+    </p>
+
+    <div class="item">
+    🗺️ <a href="/static/imagens/mapazoo_pt.png" target="_blank">
+        Abrir mapa do zoológico
+    </a>
+</div>
+
+<div class="item">
+    🦁 <a href="https://pt.wikipedia.org/wiki/Le%C3%A3o" target="_blank">
+        Ver informações dos animais
+    </a>
+</div>
+
+<div class="item">
+    🎟️ Voucher especial disponível abaixo
+</div>
+
+    <div class="voucher">
+        INTERACX10<br>
+        10% OFF na loja
+    </div>
+
+</div>
+
+</body>
+</html>

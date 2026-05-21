@@ -1,0 +1,2266 @@
+<!DOCTYPE html> <!-- Define o tipo do documento como HTML5 -->
+<html lang="pt-br"> <!-- Define o idioma da página como português do Brasil -->
+<head>
+<meta charset="UTF-8"> <!-- Permite acentuação e caracteres especiais -->
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Totem InteracX</title>
+<link rel="stylesheet" href="/static/css/sensores.css"><style>
+
+
+/* ===== ESTILO GERAL DO SITE ===== */
+/* ===== ESTILO GERAL DO SITE ===== */
+body {
+  font-family: 'Times New Roman', Times, serif; /* Define a fonte do site */
+  
+  /* Fundo com imagem + camada escura (overlay) */
+  background: 
+    linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)), /* escurece o fundo */
+    url("/static/imagens/fundo.png") no-repeat center center fixed; /* imagem centralizada e fixa */
+  
+  background-size: cover; /* Faz a imagem ocupar toda a tela */
+  color: white; /* Cor do texto */
+  text-align: center; /* Centraliza textos */
+  margin: 0; /* Remove margens padrão do navegador */
+}
+@keyframes pulseBotao {
+  0% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0.7);
+  }
+
+  50% {
+    transform: scale(1.05);
+    box-shadow: 0 0 20px 10px rgba(76, 175, 80, 0.2);
+  }
+
+  100% {
+    transform: scale(1);
+    box-shadow: 0 0 0 0 rgba(76, 175, 80, 0);
+  }
+}
+@media (max-width: 1024px){
+
+  /* ===== TÍTULOS ===== */
+
+  .tela h1{
+      font-size:55px;
+      margin-bottom:20px;
+  }
+
+  /* ===== HOME ===== */
+
+  .logo-interacx{
+      width:280px;
+  }
+
+ .botoes-home{
+      gap:20px;
+      margin-top:40px;
+  }
+
+  .botoes-home button{
+  width: 400px;
+  height: 150px;
+  font-size: 40px;
+  font-weight: bold;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #ff9800, #ff5722);
+  color: white;
+
+  animation: pulseBotao 1.5s infinite;
+  box-shadow: 0 0 20px rgba(255, 87, 34, 0.6);
+  }
+
+  .mascote{
+      width:260px;
+      max-width:60vw;
+  }
+
+  /* ===== IDIOMA ===== */
+
+  #idioma .botoes{
+      gap:20px;
+      margin-top:40px;
+      flex-wrap:wrap;
+  }
+
+  .btn-idioma img{
+      width:45px;
+      height:30px;
+  }
+
+  /* ===== MAPA ===== */
+
+  #mapaBase{
+      width:85vw;
+      max-height:60vh;
+      object-fit:contain;
+  }
+
+  .botoes-mapa{
+      margin-top:15px;
+      gap:10px;
+  }
+
+  .botoes-mapa button{
+      min-width:120px;
+      height:50px;
+      font-size:18px;
+  }
+
+  /* ===== CARDS ANIMAIS ===== */
+
+  .card{
+      width:140px;
+      min-width:140px;
+      height:210px;
+  }
+
+  .card img{
+      height:150px;
+  }
+
+  .card span{
+      font-size:16px;
+  }
+
+  /* ===== INPUT / PERGUNTA ===== */
+
+  .area-input{
+      width:90%;
+  }
+
+  .area-input input{
+      height:70px;
+      font-size:28px;
+      padding:0 100px 0 25px;
+  }
+
+  .btn-enviar-input{
+      width:60px;
+      height:55px;
+      font-size:40px;
+  }
+
+  /* ===== BOTÕES ===== */
+
+  button{
+      padding:14px 22px;
+      font-size:18px;
+      min-width:140px;
+  }
+
+  .btn-perguntar,
+  .btn-falar{
+      font-size:18px;
+      padding:14px 22px;
+  }
+
+  /* ===== FINALIZAÇÃO ===== */
+
+  .finalizar-card{
+      width:85%;
+      padding:25px;
+  }
+
+  .finalizar-card h1{
+      font-size:34px;
+  }
+
+  .finalizar-card p{
+      font-size:18px;
+  }
+
+  .logo-final{
+      width:240px;
+  }
+
+  /* ===== QR CODE ===== */
+
+  .qr-card{
+      width:280px;
+      padding:20px;
+  }
+
+  .qr-card img{
+      width:180px;
+  }
+
+  /* ===== FOOTER ===== */
+
+  .footer-direita{
+      bottom:20px;
+      right:20px;
+  }
+
+  .footer-btn{
+      font-size:14px;
+      padding:8px 12px;
+  }
+
+  /* ===== POPUP ===== */
+
+  .popup-box{
+      width:85%;
+      font-size:22px;
+      padding:25px;
+  }
+/* ===== TELA PERGUNTA ===== */
+
+#pergunta.ativa{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    min-height:100vh;
+    overflow:visible;
+    padding-bottom:90px;
+    box-sizing:border-box;
+}
+#pergunta .botoes-inferiores,
+#pergunta .footer-totem{
+    display:flex;
+    z-index:9999;
+}
+
+#pergunta h1{
+    font-size:42px;
+    margin-bottom:15px;
+}
+
+.painel-pergunta{
+    margin-top:10px;
+}
+
+.topo-animais{
+    gap:8px;
+    padding:5px;
+}
+
+.card{
+    width:120px;
+    min-width:120px;
+    height:180px;
+}
+
+.card img{
+    height:125px;
+}
+
+.card span{
+    font-size:14px;
+}
+
+.area-input{
+    width:92%;
+}
+
+.area-input input{
+    height:60px;
+    font-size:22px;
+    padding:0 80px 0 20px;
+    border-radius:25px;
+}
+
+.btn-enviar-input{
+    width:50px;
+    height:50px;
+    font-size:30px;
+    border-radius:18px;
+}
+
+.botoes-acao{
+    gap:12px;
+    margin-top:15px;
+    flex-wrap:wrap;
+}
+
+.btn-perguntar,
+.btn-falar{
+    padding:12px 18px;
+    font-size:16px;
+}
+
+.popup-box{
+    width:90%;
+    font-size:20px;
+    padding:20px;
+    max-height:70vh;
+}
+
+}
+btnIniciar {
+  width: 400px;
+  height: 150px;
+  font-size: 40px;
+  font-weight: bold;
+  border-radius: 25px;
+  background: linear-gradient(135deg, #ff9800, #ff5722);
+  color: white;
+
+  animation: pulseBotao 1.5s infinite;
+  box-shadow: 0 0 20px rgba(255, 87, 34, 0.6);
+}
+.btn-inicio-fixo {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+
+  width: 120px;
+  height: 60px;
+
+  border-radius: 15px;
+  background: linear-gradient(135deg,  #ff9800, #ff5722);
+  color: white;
+  font-size: 16px;
+
+  box-shadow: 0 5px 15px rgba(0,0,0,0.4);
+  z-index: 999; /* garante que fica acima de tudo */
+}
+
+
+/* ===== CONTROLE DAS TELAS ===== */
+html, body {
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.tela {
+  display: none;
+  width: 100vw;
+  min-height: 100vh;
+}
+
+.tela.ativa {
+
+  display:block;
+  animation:fade 0.5s ease-in;
+}
+
+/* CENTRALIZA SOMENTE HOME E INICIO */
+#home.ativa,
+#inicio.ativa {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.inicio-container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 40px; /* espaço entre leão e botão */
+}
+
+@keyframes balanco {
+  0% { transform: rotate(0deg); }
+  50% { transform: rotate(3deg); }
+  100% { transform: rotate(0deg); }
+}
+
+.mascote {
+ width: 900px;
+ max-width: 30vw;
+ animation: balanco 2s infinite;
+}
+
+/* Ajuste específico da tela de pergunta */
+#pergunta {
+  justify-content: flex-start; /* Começa do topo */
+  padding-top: 40px;
+}
+
+/* Espaço abaixo do input */
+#pergunta input {
+  margin-bottom: 20px;
+}
+
+/* ===== TÍTULOS ===== */
+.tela h1 {
+  font-size: min(7vw, 70px);
+  font-weight: bold;
+  text-shadow: 3px 3px 15px rgba(0,0,0,0.5); /* Sombra no texto */
+  margin-bottom: 30px;
+}
+
+/* Título menor na tela de pergunta */
+#pergunta h1 {
+  font-size: 50px;
+}
+
+/* ===== LAYOUT PRINCIPAL ===== */
+.layout {
+  display: flex; /* Divide a tela em lateral + conteúdo */
+  width: 100%;
+}
+
+/* layout mapa*/
+
+.mapa-container {
+  position: relative;
+  display: inline-block;
+
+}
+
+#mapaBase {
+  width: min(85vw,700px);
+max-height: 65vh;
+}
+
+/* ===== MARCADOR MODERNO ===== */
+
+#marcador{
+
+    position:absolute;
+
+    width:24px;
+
+    height:24px;
+
+    border-radius:50%;
+
+    background:#ffd600;
+
+    border:4px solid white;
+
+    box-shadow:0 0 20px rgba(255,214,0,0.9);
+
+    transform:translate(-50%, -50%);
+
+    animation:pulsar 1.5s infinite;
+
+    display:none;
+}
+
+@keyframes pulsar{
+
+    0%{
+        transform:translate(-50%, -50%) scale(1);
+        opacity:1;
+    }
+
+    70%{
+        transform:translate(-50%, -50%) scale(1.4);
+        opacity:0.7;
+    }
+
+    100%{
+        transform:translate(-50%, -50%) scale(1);
+        opacity:1;
+    }
+}
+
+/* ===== BOTÕES DO MAPA ===== */
+
+.botoes-mapa{
+
+    display:flex;
+
+    gap:15px;
+
+    margin-top:25px;
+}
+
+.botoes-mapa button{
+
+    min-width:140px;
+
+    height:55px;
+
+    padding:10px 20px;
+
+    font-size:18px;
+
+    border-radius:16px;
+
+    background:rgba(255,255,255,0.15);
+
+    backdrop-filter:blur(10px);
+
+    color:white;
+
+    border:2px solid rgba(255,255,255,0.2);
+
+    box-shadow:0 5px 15px rgba(0,0,0,0.25);
+}
+
+.botoes-mapa button:hover{
+
+    transform:scale(1.05);
+
+    background:rgba(255,255,255,0.25);
+}
+
+.btn-idioma {
+
+  display:flex;
+
+  align-items:center;
+
+  justify-content:center;
+
+  gap:10px;
+}
+ #idioma .botoes{
+
+  display:flex;
+
+  justify-content:center;
+
+  gap:30px;
+
+  margin-top:80px;
+}
+/* ===== SIDEBAR MODERNA ===== */
+
+.sidebar {
+
+  width: 320px;
+
+  height: 100vh;
+
+  padding: 25px;
+
+  overflow-y: auto;
+
+  background: rgba(20, 60, 30, 0.55);
+
+  backdrop-filter: blur(14px);
+
+  border-right: 2px solid rgba(255,255,255,0.12);
+
+  box-shadow: 5px 0 25px rgba(0,0,0,0.25);
+
+}
+
+/* ===== SCROLLBAR ===== */
+
+.sidebar::-webkit-scrollbar {
+  width: 10px;
+}
+
+.sidebar::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+
+  background: rgba(255,255,255,0.25);
+
+  border-radius: 20px;
+}
+
+/* ===== SCROLL HORIZONTAL ===== */
+
+.sidebar::-webkit-scrollbar {
+  height: 8px;
+}
+
+.sidebar::-webkit-scrollbar-thumb {
+  background: rgba(255,255,255,0.25);
+  border-radius: 20px;
+}
+
+/* ===== CARDS ===== */
+
+.card{
+
+    width:180px;
+
+    min-width:180px;
+
+    height:250px;
+
+    border-radius:28px;
+
+    overflow:hidden;
+
+    cursor:pointer;
+
+    background:rgba(255,255,255,0.12);
+
+    backdrop-filter:blur(12px);
+
+    border:2px solid rgba(255,255,255,0.15);
+
+    transition:0.3s;
+
+    flex-shrink:0;
+
+    display:flex;
+
+    flex-direction:column;
+}
+
+.card:hover{
+
+    transform:translateY(-8px) scale(1.03);
+
+    box-shadow:0 15px 25px rgba(0,0,0,0.35);
+}
+
+.card img{
+
+    width:100%;
+
+    height:180px;
+
+    object-fit:cover;
+}
+
+.card span{
+
+    flex:1;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    font-size:20px;
+
+    font-weight:bold;
+
+    color:white;
+}
+
+/* ===== PAINEL CENTRAL ===== */
+
+#pergunta{
+
+  align-items:center;
+}
+
+/* CENTRALIZA ÁREA */
+
+.painel-pergunta{
+
+  display:flex;
+
+  flex-direction:column;
+
+  align-items:center;
+
+  justify-content:center;
+
+  width:100%;
+
+  margin-top:40px;
+}
+
+/* INPUT */
+
+.area-input{
+
+    position:relative;
+
+    width:40%;
+
+    max-width:1200px;
+
+    display:flex;
+
+    justify-content:center;
+}
+
+.area-input input{
+
+    width:100%;
+
+    height:90px;
+
+    border:none;
+
+    border-radius:40px;
+
+    padding:0 140px 0 40px;
+
+    font-size:42px;
+
+    outline:none;
+
+    background:rgba(255,255,255,0.96);
+
+    color:#555;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+}
+
+/* BOTÃO INTERNO */
+
+.btn-enviar-input{
+
+    all:unset;
+
+    position:absolute;
+
+    right:18px;
+
+    top:40%;
+
+    transform:translateY(-50%);
+
+    width:80px;
+
+    height:70px;
+
+    border-radius:28px;
+
+    background:#e8e4df;
+
+    color:#7a7a7a;
+
+    font-size:52px;
+
+    font-weight:bold;
+
+    cursor:pointer;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    transition:0.25s;
+}
+
+.btn-enviar-input:hover{
+
+    background:#dcd7d2;
+
+    transform:translateY(-50%) scale(1.03);
+}
+
+
+/* ===== TOPO DOS ANIMAIS ===== */
+
+.topo-animais{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    gap:10px;
+
+    padding: 0px;
+
+    overflow-x:auto;
+
+    overflow-y:hidden;
+}
+
+/* ===== BOTÕES AÇÃO ===== */
+
+.botoes-acao{
+
+  display:flex;
+
+  justify-content:center;
+
+  align-items:center;
+
+  gap:25px;
+
+  margin-top:25px;
+}
+
+
+/* ===== BOTÕES ===== */
+
+.btn-perguntar,
+.btn-falar{
+
+    border:none;
+
+    border-radius:20px;
+
+    padding:18px 35px;
+
+    font-size:22px;
+
+    font-weight:bold;
+
+    color:white;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+
+.btn-perguntar{
+
+    background:linear-gradient(135deg,#ff9800,#f57c00);
+}
+
+.btn-falar{
+
+    background:linear-gradient(135deg,#ff9800,#f57c00);
+}
+
+.btn-perguntar:hover,
+.btn-falar:hover{
+
+    transform:scale(1.06);
+}
+
+/* ===== FOOTER ===== */
+
+.footer-totem{
+    position: fixed;
+
+    bottom: 20px;
+    left: 0;
+    width: 100%;
+
+    z-index: 999;
+}
+
+/* BOTÕES DIREITA */
+.footer-direita{
+    position: absolute;
+
+    right: 20px;
+    bottom: -60px;
+
+    display: flex;
+    gap: 12px;
+}
+
+.footer-btn{
+
+    background:rgba(255,255,255,0.15);
+
+    backdrop-filter:blur(10px);
+
+    border:2px solid rgba(255,255,255,0.15);
+
+    color:white;
+
+    border-radius:8px;
+
+    padding:4px 4px;
+
+    font-size:16px;
+
+    cursor:pointer;
+
+    transition:0.3s;
+}
+#finalizar{
+    display: none;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    text-align: center;
+}
+
+#finalizar.ativa{
+    display: flex;
+}
+
+.finalizar-card{
+    max-width: 700px;
+    padding: 40px;
+    border-radius: 25px;
+
+    background: rgba(0,0,0,0.45);
+    backdrop-filter: blur(8px);
+
+    color: white;
+}
+
+.finalizar-card h1{
+    font-size: 42px;
+    margin-bottom: 20px;
+}
+
+.finalizar-card p{
+    font-size: 22px;
+    line-height: 1.5;
+    margin-bottom: 30px;
+}
+
+.botao-finalizar{
+    position: fixed;
+
+    bottom: 20px;
+    left: 20px;
+
+    padding: 12px 18px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: rgba(253, 5, 5, 0.932);
+
+    color: white;
+
+    font-size: 16px;
+
+    backdrop-filter: blur(6px);
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    z-index: 999;
+}
+
+.botao-finalizar:hover{
+    transform: scale(1.05);
+}
+
+.botao-gerar-qr-final{
+    padding: 16px 28px;
+    border: none;
+    border-radius: 16px;
+
+    background: rgba(255,255,255,0.2);
+    color: white;
+
+    font-size: 20px;
+    cursor: pointer;
+}
+/* BOTÃO QR */
+.botao-qr{
+    position: fixed;
+
+    bottom: 20px;
+    left: 20px;
+
+    padding: 12px 18px;
+
+    border: none;
+    border-radius: 12px;
+
+    background: rgba(255,255,255,0.15);
+
+    color: white;
+
+    font-size: 16px;
+
+    backdrop-filter: blur(6px);
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    z-index: 999;
+}
+
+.botao-qr:hover{
+    transform: scale(1.05);
+}
+
+/* FUNDO ESCURO */
+.qr-popup{
+    position: fixed;
+    inset: 0;
+
+    background: rgba(0,0,0,0.65);
+
+    display: none;
+
+    align-items: center;
+    justify-content: center;
+
+    z-index: 9999;
+}
+
+/* CARD QR */
+.qr-card{
+    background: rgba(255,255,255,0.95);
+
+    color: #222;
+
+    padding: 25px;
+
+    border-radius: 20px;
+
+    text-align: center;
+
+    width: 320px;
+
+    position: relative;
+
+    box-shadow: 0 0 30px rgba(0,0,0,0.5);
+}
+
+.qr-card h2{
+    margin-top: 0;
+
+    color: #222;
+}
+
+.qr-card img{
+    background: white;
+
+    padding: 10px;
+
+    border-radius: 12px;
+}
+
+.titulo-qr{
+    margin-top: 15px;
+
+    margin-bottom: 20px;
+
+    text-align: center;
+
+    font-size: 24px;
+
+    font-weight: bold;
+
+    color: #222;
+}
+
+/* BOTÃO FECHAR */
+.fechar-qr{
+    position: absolute;
+
+    top: 10px;
+    right: 12px;
+
+    border: none;
+    background: transparent;
+
+    color: #222;
+
+    font-size: 28px;
+
+    cursor: pointer;
+
+    z-index: 10000;
+}
+
+/* ===== POPUP ===== */
+.popup {
+  position: fixed; /* Fica fixo na tela */
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7); /* Fundo escuro */
+  display: none; /* Inicialmente escondido */
+  justify-content: center;
+  align-items: center;
+}
+
+/* Caixa do popup */
+.popup-box {
+  background: white;
+  color: #1b5e20;
+  padding: 40px;
+  border-radius: 20px;
+  width: 60%;
+  font-size: 30px;
+  text-align: center;
+  max-height: 80vh;      /* 👈 LIMITA ALTURA */
+  overflow-y: auto;      /* 👈 ATIVA SCROLL */
+  animation: zoom 0.3s ease; /* Animação */
+}
+
+/* Animação de zoom */
+@keyframes zoom {
+  from { transform: scale(0.7); opacity: 0; }
+  to { transform: scale(1); opacity: 1; }
+}
+
+/* ===== BOTÕES ===== */
+button {
+  padding: 20px 30px;
+  font-size: 20px;
+  border-radius: 15px;
+  border: none;
+  background: linear-gradient(135deg, #ffffff, #c8e6c9);
+  color: #1b5e20;
+  cursor: pointer;
+  transition: 0.3s;
+  min-width: 180px;
+}
+
+/* Efeito hover */
+button:hover {
+  transform: scale(1.1);
+  box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+}
+
+.botoes-inferiores {
+
+  position: fixed;
+
+  bottom: 20px;
+
+  left: 50%;
+
+  transform: translateX(-50%);
+
+  display: flex;
+
+  gap: 15px;
+
+  z-index: 1000;
+}
+
+/* ===== BOTÕES ===== */
+
+.botao-footer {
+
+  background: rgba(255,255,255,0.15);
+
+  backdrop-filter: blur(10px);
+
+  border: 2px solid rgba(255,255,255,0.2);
+
+  color: white;
+
+  border-radius: 18px;
+
+  padding: 12px 24px;
+
+  font-size: 18px;
+
+  cursor: pointer;
+
+  transition: 0.3s;
+}
+
+.botao-footer:hover {
+
+  transform: scale(1.05);
+
+  background: rgba(255,255,255,0.25);
+}
+
+.btn-idioma img {
+  width: 60px;
+  height: 40px;
+  object-fit: cover;
+  border-radius: 5px;
+}
+.btn-idioma {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+}
+
+/* Animação de entrada */
+@keyframes fade {
+  from { opacity: 0; transform: translateY(10px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+/* ===== BOTÕES DA HOME ===== */
+.botoes-home{
+
+    width:100%;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    gap:40px;
+
+    margin-top:90px;
+
+    flex-wrap:wrap;
+}
+
+.botoes-home button{
+
+    width:min(40vw, 320px);
+
+    min-height:100px;
+
+    padding:20px;
+
+    display:flex;
+
+    justify-content:center;
+
+    align-items:center;
+
+    text-align:center;
+
+    font-size:28px;
+
+    font-weight:bold;
+
+    border-radius:25px;
+
+    background:linear-gradient(
+        135deg,
+        rgba(255,255,255,0.95),
+        rgba(220,255,220,0.9)
+    );
+
+    color:#1b5e20;
+
+    box-shadow:0 10px 25px rgba(0,0,0,0.25);
+
+    transition:0.3s;
+}
+
+.botoes-home button:hover{
+
+    transform:translateY(-6px) scale(1.04);
+
+    box-shadow:0 15px 30px rgba(0,0,0,0.35);
+}
+@keyframes ganhar {
+  0% { transform: scale(0.5); opacity: 0; }
+  50% { transform: scale(1.2); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.voucher-animado {
+  animation: ganhar 0.5s ease;
+}
+
+@keyframes piscar {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.1); color: #2e7d32; }
+  100% { transform: scale(1); }
+}
+
+.ganhou-texto {
+  font-size: 26px;
+  font-weight: bold;
+  color: #1b5e20;
+  animation: piscar 0.8s infinite;
+}
+
+@keyframes pop {
+  0% { transform: scale(0.5); opacity: 0; }
+  70% { transform: scale(1.1); }
+  100% { transform: scale(1); opacity: 1; }
+}
+
+.voucher-animado {
+  animation: pop 0.4s ease;
+}
+
+.logo-interacx{
+
+    width:500px;
+
+    margin-bottom:40px;
+
+    opacity:0.95;
+
+    animation:fadeLogo 1.5s ease;
+}
+
+.logo-final{
+
+    width:400px;
+
+    margin-bottom:30px;
+
+    opacity:0.9;
+}
+
+@keyframes fadeLogo{
+
+    from{
+        opacity:0;
+        transform:translateY(-20px);
+    }
+
+    to{
+        opacity:1;
+        transform:translateY(0);
+    }
+}
+
+#pergunta.ativa{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    height:100vh;
+    overflow:hidden;
+    padding-top:10px;
+    box-sizing:border-box;
+}
+
+#pergunta h1{
+    font-size:42px;
+    margin:5px 0 10px 0;
+}
+
+#pergunta .card{
+    width:110px;
+    min-width:110px;
+    height:165px;
+}
+
+#pergunta .card img{
+    height:115px;
+}
+
+#pergunta .card span{
+    font-size:14px;
+}
+
+#pergunta .area-input{
+    width:85%;
+}
+
+#pergunta .area-input input{
+    height:55px;
+    font-size:22px;
+    padding:0 75px 0 20px;
+}
+
+#pergunta .painel-pergunta{
+    margin-top:5px;
+}
+
+#pergunta .botoes-acao{
+    margin-top:10px;
+}
+
+#adminArea{
+    position: fixed;
+    top: 0;
+    right: 0;
+
+    width: 130px;
+    height: 130px;
+
+    z-index: 99999;
+
+    background: transparent;
+
+    font-size: 0;
+}
+
+#inicio .botao-iniciar,
+.botao-iniciar {
+  display: inline-block !important;
+  background: #ff8c00 !important;
+  color: white !important;
+  border: none !important;
+  padding: 18px 45px !important;
+  font-size: 28px !important;
+  font-weight: bold !important;
+  border-radius: 18px !important;
+  cursor: pointer !important;
+  z-index: 9999 !important;
+  position: relative !important;
+}
+
+
+
+/* ===== CORREÇÕES CHATGPT: rodapé, botões e camadas ===== */
+.footer-direita{
+    position: fixed !important;
+    right: 20px !important;
+    bottom: 20px !important;
+    display: flex !important;
+    gap: 12px !important;
+    z-index: 9999 !important;
+}
+
+.footer-btn{
+    min-width: 130px;
+    padding: 12px 18px;
+}
+
+.botao-finalizar{
+    position: fixed !important;
+    left: 20px !important;
+    bottom: 20px !important;
+    z-index: 9999 !important;
+}
+
+#pergunta.ativa{
+    display:flex !important;
+    flex-direction:column;
+    align-items:center;
+    justify-content:flex-start;
+    min-height:100vh;
+    overflow:visible !important;
+    padding-bottom:100px;
+}
+
+.popup, .qr-popup{
+    z-index: 10000 !important;
+}
+
+#areaQR{
+    z-index: 10001 !important;
+}
+
+</style>
+</head>
+
+<script src="https://cdn.jsdelivr.net/npm/qrcode/build/qrcode.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="/static/js/sensores.js" defer></script>
+
+
+<body>
+
+<div id="adminArea"></div>
+
+<div id="home" class="tela ativa">
+    <h1>Totem InteracX</h1>
+    <img src="/static/imagens/interacx.png" class="logo-interacx">
+    <p>Aproxime-se para iniciar</p>
+</div>
+
+<div id="infoClima"></div>
+
+<!--TELA INICIAL-->
+<div id="inicio" class="tela">
+
+  <div class="botoes-home">
+        <img src="/static/imagens/avatar.jpg.png" class="mascote">
+<button onclick="iniciarSistema()" id="botoes-home">
+      INICIAR
+    </button>
+
+  </div>
+ <audio id="audioBoasVindas">
+  <source id="fonteBoasVindas" src="/static/Audio/boasvindas.mp3.mp3" type="audio/mpeg">
+</audio>
+
+</div>
+<!-- ===== TELA DE IDIOMA ===== -->
+<div id="idioma" class="tela">
+  <h1 data-key="idioma"></h1>
+
+  <div class="botoes">
+  <button onclick="setIdioma('pt')" class="btn-idioma">
+    <img src="/static/imagens/br.png">
+    Português
+  </button>
+
+  <button onclick="setIdioma('en')" class="btn-idioma">
+    <img src="/static/imagens/eua.png">
+    English
+  </button>
+ </div>
+</div>
+<!-- ===== TELA DE INTERAÇÕES ===== -->
+<div id="interacoes" class="tela">
+  <h1 data-key="homeTitulo"></h1>
+
+  <div class="botoes-home">
+  <button onclick="irPara('pergunta')" data-key="explorar"></button>
+  <button onclick="irPara('mapa')" data-key="mapa"></button>
+  <button onclick="window.location.href='/pacotes?idioma=' + idioma" data-key="experiencias"></button>
+  </div>
+</div>
+<!-- ===== TELA DO MAPA ===== -->
+<div id="mapa" class="tela">
+
+  <h1 data-key="mapaTitulo"></h1>
+
+  <div class="mapa-container">
+    <img src="/static/imagens/mapazoo_pt.png" id="mapaBase">
+    <div id="marcador"></div>
+  </div>
+
+  <br><br>
+
+  <div class="botoes-mapa">
+    <button onclick="irPara('pergunta')" data-key="voltar"></button>
+  </div>
+
+</div>
+<!-- ===== TELA DE PERGUNTA ===== -->
+
+<div id="pergunta" class="tela">
+
+    <!-- ===== TOPO DOS ANIMAIS ===== -->
+
+    <div class="topo-animais">
+
+        <div class="card" onclick="selecionarAnimal('leão')">
+            <img src="/static/imagens/leao.jpg">
+            <span data-key="leao"></span>        
+          </div>
+
+        <div class="card" onclick="selecionarAnimal('elefante')">
+            <img src="/static/imagens/elefante.jpg">
+           <span data-key="elefante"></span>
+        </div>
+
+        <div class="card" onclick="selecionarAnimal('girafa')">
+            <img src="/static/imagens/girafa.jpg">
+            <span data-key="girafa"></span>
+        </div>
+
+        <div class="card" onclick="selecionarAnimal('tigre')">
+            <img src="/static/imagens/tigre.jpg">
+            <span data-key="tigre"></span>
+        </div>
+
+        <div class="card" onclick="selecionarAnimal('arara')">
+            <img src="/static/imagens/arara.jpg">
+            <span data-key="arara"></span>
+        </div>
+
+        <div class="card" onclick="selecionarAnimal('zebra')">
+            <img src="/static/imagens/zebra.jpg">
+            <span data-key="zebra"></span>
+        </div>
+
+    </div>
+
+    <!-- ===== ÁREA CENTRAL ===== -->
+
+    <div class="painel-pergunta">
+
+        <h1 data-key="pergunta">
+            Faça sua pergunta
+        </h1>
+
+       <div class="area-input">
+
+    <input
+        id="texto"
+        data-key="placeholder"
+        placeholder="Pergunte sobre os animais..."
+   />
+
+    <button class="btn-enviar-input" onclick="enviar()">
+        ➜
+    </button>
+
+</div>
+
+<div class="botoes-acao">
+  <button class="btn-falar" onclick="ouvirUsuario()" data-key="falar">🎤 Falar</button>
+</div>
+
+</div>
+
+<!-- ===== RODAPÉ DA TELA DE PERGUNTAS ===== -->
+<div class="footer-direita">
+  <button class="footer-btn" onclick="irPara('interacoes')" data-key="voltar">⬅ Voltar</button>
+  <button class="footer-btn" onclick="irPara('inicio')" data-key="inicio">🏠 Início</button>
+</div>
+
+<button class="botao-finalizar"
+        onclick="irPara('finalizar')"
+        data-key="finalizar_sessao">Finalizar sessão</button>
+
+</div>
+
+<!-- POPUP QR -->
+    <div id="areaQR" class="qr-popup" style="display:none;">
+
+    <div class="qr-card">
+
+    <button type="button" class="fechar-qr" onclick="fecharQRCode()">×</button>
+
+    <h2 class="titulo-qr" data-key="titulo_qr"></h2>
+
+    <img id="imagemQR" width="220">
+
+  </div>
+</div>
+
+<!-- ===== DASHBOARD ===== -->
+<div id="dashboard" class="tela">
+  <h1>📊 Dashboard</h1>
+
+  <div class="botoes">
+    <button onclick="carregarStats()">Atualizar</button>
+    <button onclick="irPara('interacoes')">⬅ Voltar</button>
+  </div>
+
+  <div style="margin-top:30px; font-size:24px;">
+    <p>Total de vouchers: <strong id="total">0</strong></p>
+    <p>Usados: <strong id="usados">0</strong></p>
+    <p>Disponíveis: <strong id="disponiveis">0</strong></p>
+  </div>
+
+  <div style="margin-top:30px;">
+    <canvas id="grafico" width="300" height="300"></canvas>
+  </div>
+</div>
+
+<!-- ===== POPUP ===== -->
+<div id="popup" class="popup">
+  <div class="popup-box">
+    <p id="resposta"></p>
+
+    <audio id="audio"></audio>
+
+    <div class="botoes">
+      <button onclick="fecharPopup()" data-key="voltar"></button>
+      <button onclick="irParaMapa()" data-key="verMapa"></button>
+      <p id="voucher" style="color: rgb(20, 20, 20); font-size: 24px;"></p>
+    </div>
+
+  </div>
+</div>
+<!-- ===== TELA DE FINALIZAÇÃO ===== -->
+<div id="finalizar" class="tela">
+
+  <img src="/static/imagens/interacx.png" class="logo-final">
+
+  <div class="finalizar-card">
+
+    <h1 data-key="obrigado_final"></h1>
+
+    <p data-key="texto_qr_final"></p>
+
+    <button type="button"
+        class="botao-gerar-qr-final"
+        onclick="gerarQRCode()">
+    📱 Gerar QR Code
+    </button>
+
+  </div>
+
+</div>
+
+<script>
+
+const traducoes = {
+pt: {
+
+  homeTitulo: "Escolha sua Aventura!",
+  explorar: "🦁 Explorar animais",
+  mapa: "🗺️ Ver o mapa",
+  experiencias: "🎟️ Experiências",
+  idioma: "Escolha o idioma",
+  voltar: "⬅ Voltar",
+  inicio: "🏠 Início",
+  qr: "📱 Gerar QR Code",
+  finalizar_sessao: "Finalizar sessão",
+  obrigado_final: "Obrigado por utilizar o InteracX!",
+  texto_qr_final: "Gere seu QR Code para levar consigo informações do mapa, vouchers e conteúdos da sua experiência no zoológico.",
+  gerar_qr_final: "📱 Gerar QR Code",
+  titulo_qr: "Escaneie pra mais!",
+  
+  pergunta: "Faça sua pergunta",
+  placeholder: "Digite sua pergunta...",
+  perguntar: "🔍 Perguntar",
+  falar: "🎤 Falar",
+  verMapa: "📍 Ver no mapa",
+
+  ganhou: "🎉 VOCÊ GANHOU!",
+  voucherEspecial: "🎟️ Voucher Especial!",
+  valido: "Válido até",
+  off: "OFF em",
+  apresenteVoucher: "Apresente este código no caixa",
+
+  leao: "🦁 Leão",
+  elefante: "🐘 Elefante",
+  girafa: "🦒 Girafa",
+  tigre: "🐯 Tigre",
+  arara: "🦜 Arara",
+  zebra: "🦓 Zebra"
+  
+},
+
+en: {
+
+  homeTitulo: "Choose Your Adventure!",
+  explorar: "🦁 Explore animals",
+  mapa: "🗺️ View the map",
+  experiencias: "🎟️ Experiences",
+  idioma: "Choose your language",
+  voltar: "⬅ Back",
+  inicio: "🏠 Home",
+  qr: "📱 Generate QR Code",
+  finalizar_sessao: "End session",
+  obrigado_final: "Thank you for using InteracX!",
+  texto_qr_final: "Generate your QR Code to take map information, vouchers and content from your zoo experience with you.",
+  gerar_qr_final: "📱 Generate QR Code",
+  titulo_qr: "Scan for more!",
+
+
+  pergunta: "Ask your question",
+  placeholder: "Type your question...",
+  perguntar: "🔍 Ask",
+  falar: "🎤 Speak",
+  verMapa: "📍 View on map",
+
+  ganhou: "🎉 YOU WON!",
+  voucherEspecial: "🎟️ Special Voucher!",
+  valido: "Valid until",
+  off: "OFF on",
+  apresenteVoucher: "Show this code at checkout",
+
+  leao: "🦁 Lion",
+  elefante: "🐘 Elephant",
+  girafa: "🦒 Giraffe",
+  tigre: "🐯 Tiger",
+  arara: "🦜 Macaw",
+  zebra: "🦓 Zebra"
+}
+}
+/* Define idioma padrão */
+let idioma = "pt";
+function setIdioma(i){
+
+  idioma = i;
+
+  let mapa = document.getElementById("mapaBase");
+
+  if(mapa){
+
+    if(idioma === "en"){
+      mapa.src = "/static/imagens/mapazoo_en.png";
+    }
+    else{
+      mapa.src = "/static/imagens/mapazoo_pt.png";
+    }
+  }
+
+  traduzirTela();
+
+  // 🔊 toca o áudio IMEDIATAMENTE após clique
+  tocarBoasVindas();
+
+  // depois muda de tela
+  irPara('interacoes');
+}
+
+
+/* Define idioma e vai para tela principal */
+function traduzirTela() {
+  const t = traducoes[idioma];
+
+  document.querySelectorAll("[data-key]").forEach(el => {
+    const key = el.getAttribute("data-key");
+
+    const textoTraduzido = t[key] || traducoes.pt[key] || el.innerText;
+
+    if (el.tagName === "INPUT") {
+      el.placeholder = textoTraduzido;
+    } else {
+      el.innerText = textoTraduzido;
+    }
+  });
+}
+
+function iniciarSistema(){
+  irPara('idioma');
+}
+function tocarBoasVindas() {
+  let caminho = idioma === "en"
+    ? "/static/audios/bemvindo_en.mp3"
+    : "/static/audios/bemvindo_pt.mp3";
+
+  let audio = new Audio(caminho);
+  audio.play().catch(erro => {
+    console.log("Erro ao tocar boas-vindas:", erro);
+  });
+}
+
+/* Troca de telas */
+function irPara(tela){
+  document.querySelectorAll('.tela').forEach(t => t.classList.remove('ativa'));
+
+  const destino = document.getElementById(tela);
+
+  if(destino){
+    destino.classList.add('ativa');
+    console.log("Indo para:", tela);
+
+    if(tela === "inicio" && typeof tocarAudioInicio === "function"){
+      tocarAudioInicio();
+    }
+
+    if(tela === "idioma" && typeof tocarAudioIdioma === "function"){
+      tocarAudioIdioma();
+    }
+
+    if(tela === "finalizar"){
+      iniciarTimerFinalizacao();
+    }
+  }
+}
+/* Envia pergunta para o backend */
+async function enviar(){
+  let texto = document.getElementById("texto").value;
+
+  try {
+    let res = await fetch("/pergunta", {
+      method: "POST",
+      headers: {"Content-Type": "application/json"},
+      body: JSON.stringify({texto, idioma})
+    });
+
+    let data = await res.json();
+    console.log(data);
+
+    document.getElementById("resposta").innerText = data.resposta;
+     if(data.audio){
+    let audio = new Audio(data.audio);
+    audio.play();
+}
+    // 🎟️ VOUCHER
+    let descricao = "loja do zoológico 🛍️";
+
+if (data.tipo === "pelucia_leao") {
+    descricao = idioma === "en"
+    ? "Lion plush 🦁"
+    :"pelúcia do leão 🦁";
+}
+else if (data.tipo === "pelucia_elefante") {
+    descricao = idioma === "en"
+    ? "Elephant plush 🐘"
+    :"pelúcia do elefante 🐘";
+}
+else if (data.tipo === "pelucia_girafa") {
+    descricao = idioma === "en" 
+    ? "Giraffe plush 🦒"   
+    :"pelúcia da girafa 🦒";
+}
+else if (data.tipo === "comida") {
+    descricao = idioma === "en" 
+    ? "Restaurant 🍔"
+    :"restaurante 🍔";
+}
+else if (data.tipo === "pelucia_tigre") {
+    descricao = idioma === "en" 
+    ? "Tiger plush 🐯"
+    :"pelúcia do tigre 🐯";
+}
+else if (data.tipo === "pelucia_arara") {
+    descricao = idioma === "en" 
+    ? "Macaw plush 🦜"
+    :"pelúcia da arara 🦜";
+}
+else if (data.tipo === "pelucia_zebra") {
+    descricao = idioma === "en" 
+    ? "Zebra plush 🦓"
+    :"pelúcia da zebra 🦓";
+}
+
+    document.getElementById("voucher").innerHTML = `
+<div class="voucher-animado" style="
+  margin-top:20px;
+  padding:15px;
+  border-radius:15px;
+  border:3px dashed #1976d2;
+  background: linear-gradient(135deg, #ffffff, #e3f2fd);
+  box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+  color:#000;
+  text-align:center;
+">
+
+  <div style="font-size:20px; font-weight:bold; margin-bottom:10px;">
+  ${traducoes[idioma].ganhou}
+  </div>
+
+  <div style="font-size:18px; font-weight:bold; margin-bottom:10px;">
+  ${traducoes[idioma].voucherEspecial}
+  </div>
+
+  <div style="font-size:16px; margin-bottom:10px;">
+    ${data.desconto}% ${traducoes[idioma].off} ${descricao}
+  </div>
+
+  <div style="font-size:16px; color:#2e7d32; margin-bottom:10px;">
+    ${data.mensagem}
+  </div>
+
+  <div style="margin:15px 0;">
+    <canvas id="qrcode"></canvas>
+  </div>
+
+  <div style="font-size:14px; margin-bottom:5px;">
+  ${traducoes[idioma].valido} ${data.expira_em}
+  </div>
+
+  <div style="
+    font-size:24px;
+    font-weight:bold;
+    letter-spacing:2px;
+    color:#1976d2;
+    margin-bottom:10px;
+  ">
+    ${data.voucher}
+  </div>
+
+  <div style="font-size:14px;">
+  ${traducoes[idioma].apresenteVoucher}
+  </div>
+
+</div>
+`;
+
+
+   if (data.voucher) {
+
+    confetti({
+    particleCount: 120,
+    spread: 70,
+    origin: { y: 0.6 }
+
+  });
+      
+      // 📱 QR CODE
+      setTimeout(() => {
+        let canvas = document.getElementById("qrcode");
+        if (canvas) {
+          QRCode.toCanvas(canvas, data.voucher);
+        }
+      }, 100);
+
+    } else {
+      document.getElementById("voucher").innerText = "";
+    }
+
+  } catch (erro) {
+    console.log("ERRO:", erro);
+
+    document.getElementById("resposta").innerText = "Erro ao conectar 😢";
+    document.getElementById("voucher").innerText = "";
+  }
+
+  document.getElementById("popup").style.display = "flex";
+
+  // 🔊 VOZ
+  //speechSynthesis.cancel(); // 👈 PARA QUALQUER ÁUDIO ANTES
+ // let msg = new SpeechSynthesisUtterance(
+   // document.getElementById("resposta").innerText
+  //);
+  //msg.lang = (idioma === "pt") ? "pt-BR" : "en-US";
+  //.speak(msg);
+//}
+// 🔊 VOZ ELEVENLABS
+speechSynthesis.cancel();
+
+if (data.audio) {
+  let audio = new Audio(data.audio + "?v=" + Date.now());
+  audio.play();
+}
+}
+function irParaMapa(){
+  fecharPopup();
+  irPara('mapa');
+
+  if(animalSelecionado){
+    mostrarNoMapa(animalSelecionado);
+  }
+}
+
+/* Fecha popup */
+function fecharPopup(){
+  document.getElementById("popup").style.display = "none";
+}
+
+/* Placeholder para voz futura */
+function voz(){
+  alert("Vamos ativar a voz no próximo passo");
+}
+
+/* Clica no animal e envia automaticamente */
+let animalSelecionado = "";
+
+function selecionarAnimal(animal){
+  animalSelecionado = animal;
+
+  document.getElementById("texto").value = animal;
+
+  mostrarNoMapa(animal);
+
+  enviar();
+}
+
+function voltarPergunta(){
+  // fecha popup
+  let popup = document.getElementById("popup");
+  if (popup) popup.style.display = "none";
+
+  // vai pra tela pergunta
+  irPara('pergunta');
+}
+
+/* Fecha popup clicando fora */
+window.onclick = function(event) {
+  let popup = document.getElementById("popup");
+  if (event.target === popup) {
+    popup.style.display = "none";
+  }
+}
+
+ function mostrarNoMapa(animal){
+
+  let marcador = document.getElementById("marcador");
+
+  if(!marcador) return;
+
+  marcador.style.display = "block";
+
+  if(animal === "leão"){
+    marcador.style.top = "20%";
+    marcador.style.left = "15%";
+  }
+  else if(animal === "elefante"){
+    marcador.style.top = "20%";
+    marcador.style.left = "47%";
+  }
+  else if(animal === "girafa"){
+    marcador.style.top = "20%";
+    marcador.style.left = "85%";
+  }
+  else if(animal === "tigre"){
+    marcador.style.top = "55%";
+    marcador.style.left = "15%";
+  }
+  else if(animal === "arara"){
+    marcador.style.top = "55%";
+    marcador.style.left = "47%";
+  }
+  else if(animal === "zebra"){
+    marcador.style.top = "55%";
+    marcador.style.left = "85%";
+  }
+}
+// DASHBOARD
+async function carregarStats() {
+  try {
+    let res = await fetch("/stats");
+    let data = await res.json();
+
+    console.log(data); // pra testar
+
+    document.getElementById("total").innerText = data.total;
+    document.getElementById("usados").innerText = data.usados;
+    document.getElementById("disponiveis").innerText = data.disponiveis;
+    const totalVouchers = document.getElementById("totalVouchers");
+    if (totalVouchers) totalVouchers.innerText = data.total_vouchers;
+    // 📊 gráfico
+    let canvas = document.getElementById("grafico");
+    let ctx = canvas.getContext("2d");
+
+// limpa gráfico
+    canvas.width = canvas.width;
+
+    new Chart(ctx, {
+      type: "doughnut",
+      data: {
+        labels: ["Usados", "Disponíveis"],
+        datasets: [{
+          data: [data.usados, data.disponiveis]
+        }]
+      }
+    });
+
+  } catch (erro) {
+    console.log("Erro ao carregar stats:", erro);
+  }
+}
+
+let cliques = 0;
+
+document.addEventListener("keydown", function(e){
+
+  if (e.key.toLowerCase() === "d") {
+
+    cliques++;
+
+    if (cliques >= 3) {
+
+      window.location.href = "/dashboard";
+
+      cliques = 0;
+    }
+
+    setTimeout(() => {
+      cliques = 0;
+    }, 1500);
+  }
+});
+
+traduzirTela();
+
+// ===============================
+// 🔥 INTEGRAÇÃO COM O TOTEM (SENSORES)
+// ===============================
+
+let estadoAtual = "";
+
+// controla navegação automática
+function atualizarTotem(data){
+
+  // evita ficar trocando toda hora sem necessidade
+  if(data.estado === estadoAtual) return;
+
+  estadoAtual = data.estado;
+  console.log("Estado mudou:", estadoAtual);
+
+  // 🎯 CONTROLE DAS TELAS AUTOMÁTICO
+  if(data.estado === "espera"){
+    irPara("inicio");
+  }
+
+  else if(data.estado === "convite"){
+    irPara("idioma");
+  }
+
+  else if(data.estado === "sessao"){
+    irPara("interacoes");
+  }
+
+  // 🌡️ pode mostrar info debug se quiser
+  console.log("Distância:", data.distancia);
+  console.log("Temp:", data.temperatura);
+}
+
+// 🔄 LOOP AUTOMÁTICO (a cada 1s)
+
+// Loop antigo desativado: /dados é usado para métricas, não para navegação por sensor.
+// A leitura de sensores fica concentrada em verificarSensores().
+
+function ouvirUsuario() {
+  const SpeechRecognition = window.SpeechRecognition || window.webkitSpeechRecognition;
+
+  if (!SpeechRecognition) {
+    alert("Seu navegador não suporta reconhecimento de voz. Use Chrome ou Edge.");
+    return;
+  }
+
+  const reconhecimento = new SpeechRecognition();
+
+  reconhecimento.lang = "pt-BR";
+  reconhecimento.continuous = false;
+  reconhecimento.interimResults = false;
+  reconhecimento.maxAlternatives = 1;
+
+  document.getElementById("resposta").innerText = "🎤 Ouvindo... fale agora";
+
+  reconhecimento.start();
+
+  reconhecimento.onresult = async function(event) {
+    const texto = event.results[0][0].transcript;
+
+    console.log("Texto reconhecido:", texto);
+
+    document.getElementById("texto").value = texto;
+    document.getElementById("resposta").innerText = "Você disse: " + texto;
+
+    await enviar();
+  };
+
+  reconhecimento.onspeechend = function() {
+    reconhecimento.stop();
+  };
+
+  reconhecimento.onerror = function(event) {
+  console.log("Erro no reconhecimento:", event.error);
+
+  alert("Erro voz: " + event.error);
+
+  document.getElementById("resposta").innerText =
+    "Erro no microfone: " + event.error;
+};
+
+  reconhecimento.onend = function() {
+    console.log("Reconhecimento finalizado");
+  };
+}
+
+let sensorJaAtivou = false;
+
+async function verificarSensores() {
+    try {
+        const resposta = await fetch("/sensores");
+        const dados = await resposta.json();
+
+        console.log("Sensores:", dados);
+
+        if (dados.presenca === true && sensorJaAtivou === false) {
+            sensorJaAtivou = true;
+            irPara("inicio");
+        }
+
+        if (dados.temperatura !== null) {
+            console.log("Temperatura:", dados.temperatura);
+        }
+
+        if (dados.voucher_clima !== null) {
+            console.log(dados.voucher_clima.mensagem);
+        }
+
+    } catch (erro) {
+        console.log("Erro ao ler sensores", erro);
+    }
+}
+
+setInterval(verificarSensores, 2000);
+
+async function gerarQRCode(){
+    const res = await fetch("/gerar-qr");
+    const data = await res.json();
+
+    document.getElementById("imagemQR").src =
+        data.qr + "?t=" + new Date().getTime();
+
+    document.getElementById("areaQR").style.display = "flex";
+}
+
+function fecharQRCode(){
+    document.getElementById("areaQR").style.display = "none";
+}
+
+// relacionado ao botao de voltar/tela experiencias
+const voltarPara = sessionStorage.getItem("voltarPara");
+
+if(voltarPara){
+  sessionStorage.removeItem("voltarPara");
+
+  setTimeout(() => {
+    irPara(voltarPara);
+  }, 300);
+}
+
+// timer pra tela de finalizar ir ora tela home
+let timerFinalizacao = null;
+
+function iniciarTimerFinalizacao(){
+    clearTimeout(timerFinalizacao);
+
+    timerFinalizacao = setTimeout(() => {
+        fecharQRCode();
+        irPara("inicio");
+    }, 25000); // 25 segundos
+}
+
+let cliquesAdmin = 0;
+let tempoAdmin = null;
+
+document.getElementById("adminArea").addEventListener("click", () => {
+    cliquesAdmin++;
+
+    clearTimeout(tempoAdmin);
+
+    if (cliquesAdmin >= 5) {
+        cliquesAdmin = 0;
+        window.location.href = "/dashboard";
+    }
+
+    tempoAdmin = setTimeout(() => {
+        cliquesAdmin = 0;
+    }, 3000);
+});
+
+</script>
+</body>
+</html>
+

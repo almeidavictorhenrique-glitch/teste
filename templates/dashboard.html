@@ -1,0 +1,400 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+<meta charset="UTF-8">
+
+<title>Dashboard InteracX</title>
+
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+
+<style>
+
+body{
+    font-family: Arial, sans-serif;
+
+    background:
+        linear-gradient(rgba(0,0,0,0.65), rgba(0,0,0,0.65)),
+        url("/static/imagens/fundo.png");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    color: white;
+    margin: 0;
+    padding: 30px;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 40px;
+}
+
+.cards{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+    margin-bottom: 30px;
+}
+
+.card{
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.15);
+    padding: 20px;
+    border-radius: 15px;
+    flex: 1;
+    min-width: 250px;
+
+    box-shadow: 0 0 15px rgba(0,0,0,0.4);
+}
+
+.card h2{
+    margin-top: 0;
+}
+
+.numero{
+    font-size: 40px;
+    font-weight: bold;
+}
+
+.graficos{
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+}
+
+.grafico-box{
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.15);    padding: 20px;
+    border-radius: 15px;
+    flex: 1;
+    min-width: 350px;
+}
+
+.lista{
+    background: rgba(255,255,255,0.12);
+    backdrop-filter: blur(12px);
+    border: 1px solid rgba(255,255,255,0.15);    margin-top: 30px;
+    padding: 20px;
+    border-radius: 15px;
+}
+
+.lista ul{
+    list-style: none;
+    padding: 0;
+}
+
+.lista li{
+    padding: 10px;
+    border-bottom: 1px solid #334155;
+}
+
+.logout {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: #e74c3c;
+    color: white;
+    padding: 10px 18px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-weight: bold;
+    z-index: 999;
+}
+
+.logout:hover {
+    background: #c0392b;
+}
+
+</style>
+</head>
+
+<body>
+
+<a href="/admin/logout" class="logout">Sair</a>
+
+<h1>📊 Dashboard InteracX</h1>
+
+<div class="cards">
+
+    <div class="card">
+        <h2>Total de Interações</h2>
+        <div class="numero" id="total">0</div>
+    </div>
+
+    <div class="card">
+        <h2>Português 🇧🇷</h2>
+        <div class="numero" id="pt">0</div>
+    </div>
+
+    <div class="card">
+        <h2>English 🇺🇸</h2>
+        <div class="numero" id="en">0</div>
+    </div>
+
+    <div class="card">
+        <h2>Vouchers Gerados 🎟️</h2>
+    <div class="numero" id="totalVouchers">0</div>
+    </div>
+
+</div>
+
+<div class="graficos">
+
+    <div class="grafico-box">
+        <h2>Idiomas Utilizados</h2>
+        <canvas id="graficoIdiomas"></canvas>
+    </div>
+
+    <div class="grafico-box">
+        <h2>Perguntas por Animal</h2>
+        <canvas id="graficoAnimais"></canvas>
+    </div>
+
+</div>
+
+<div class="lista">
+
+    <h2>Últimas Interações</h2>
+
+    <ul id="listaInteracoes"></ul>
+
+</div>
+
+<script>
+
+let graficoIdiomas;
+let graficoAnimais;
+
+async function carregarDados(){
+
+    let resposta = await fetch("/dados");
+
+    let data = await resposta.json();
+
+    // =========================
+    // CARDS
+    // =========================
+
+    document.getElementById("total").innerText =
+        data.total_interacoes;
+
+    document.getElementById("pt").innerText =
+        data.idiomas.pt;
+
+    document.getElementById("en").innerText =
+        data.idiomas.en;
+
+    document.getElementById("totalVouchers").innerText =
+    data.total_vouchers || 0;
+
+    // =========================
+    // LISTA
+    // =========================
+
+    let lista = document.getElementById("listaInteracoes");
+
+    lista.innerHTML = "";
+
+    data.ultimas_interacoes.reverse().forEach(i => {
+
+        lista.innerHTML += `
+            <li>
+                🕒 ${i.data}<br>
+                ❓ ${i.pergunta}<br>
+                🌍 ${i.idioma}<br>
+                💬 ${i.resposta}
+            </li>
+        `;
+    });
+
+    // =========================
+    // CONTAR ANIMAIS
+    // =========================
+
+    let animais = {
+        leao: 0,
+        tigre: 0,
+        zebra: 0,
+        arara: 0,
+        girafa: 0,
+        elefante: 0
+    };
+
+    data.perguntas.forEach(p => {
+
+        p = p.toLowerCase();
+
+        if(p.includes("leao") || p.includes("leão") || p.includes("lion"))
+            animais.leao++;
+
+        if(p.includes("tigre") || p.includes("tiger"))
+            animais.tigre++;
+
+        if(p.includes("zebra"))
+            animais.zebra++;
+
+        if(p.includes("arara") || p.includes("macaw"))
+            animais.arara++;
+
+        if(p.includes("girafa") || p.includes("giraffe"))
+            animais.girafa++;
+
+        if(p.includes("elefante") || p.includes("elephant"))
+            animais.elefante++;
+    });
+
+// =========================
+// GRÁFICO IDIOMAS
+// =========================
+
+if (graficoIdiomas) {
+    graficoIdiomas.destroy();
+}
+
+graficoIdiomas = new Chart(
+    document.getElementById("graficoIdiomas"),
+    {
+        type: "bar",
+
+        data: {
+            labels: ["Português", "English"],
+
+            datasets: [{
+                label: "Idiomas",
+
+                data: [
+                    data.idiomas.pt,
+                    data.idiomas.en
+                ],
+
+                backgroundColor: [
+                    "#22c55e",
+                    "#3b82f6"
+                ],
+
+                borderRadius: 10,
+                borderWidth: 2
+            }]
+        },
+
+        options: {
+            plugins: {
+                legend: {
+                    labels: {
+                        color: "white",
+                        font: {
+                            size: 18,
+                            weight: "bold"
+                        }
+                    }
+                }
+            },
+
+            scales: {
+                x: {
+                    ticks: {
+                        color: "white",
+                        font: {
+                            size: 18,
+                            weight: "bold"
+                        }
+                    }
+                },
+
+                y: {
+                    ticks: {
+                        color: "white",
+                        font: {
+                            size: 16,
+                            weight: "bold"
+                        }
+                    }
+                }
+            }
+        }
+    }
+);
+
+    // =========================
+    // GRÁFICO ANIMAIS
+    // =========================
+
+    if(graficoAnimais)
+        graficoAnimais.destroy();
+
+   graficoAnimais = new Chart(
+    document.getElementById("graficoAnimais"),
+    {
+        type: "pie",
+
+        data: {
+
+            labels: [
+                "Leão",
+                "Tigre",
+                "Zebra",
+                "Arara",
+                "Girafa",
+                "Elefante"
+            ],
+
+            datasets: [{
+
+                label: "Perguntas",
+
+                data: [
+                    animais.leao,
+                    animais.tigre,
+                    animais.zebra,
+                    animais.arara,
+                    animais.girafa,
+                    animais.elefante
+                ],
+
+                backgroundColor: [
+                    "#f59e0b",
+                    "#ef4444",
+                    "#ffffff",
+                    "#3b82f6",
+                    "#1b5e20",
+                    "#6b7280"
+                ],
+
+                borderRadius: 10,
+                borderWidth: 2
+            }]
+        },
+
+        options: {
+
+            plugins: {
+
+                legend: {
+
+                    labels: {
+
+                        color: "white",
+
+                        font: {
+                            size: 18,
+                            weight: "bold"
+                        }
+                    }
+                }
+            }
+        }
+    }
+);
+}
+carregarDados();
+
+// atualiza sozinho a cada 5 segundos
+setInterval(carregarDados, 5000);
+
+</script>
+
+</body>
+</html>

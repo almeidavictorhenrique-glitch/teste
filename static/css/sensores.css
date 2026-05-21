@@ -1,0 +1,33 @@
+#telaEspera {
+    position: fixed;
+    inset: 0;
+    background: rgba(0,0,0,0.85);
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    z-index: 9999;
+    font-family: Arial, sans-serif;
+}
+
+#telaEspera h1 {
+    font-size: 60px;
+    margin-bottom: 20px;
+}
+
+#telaEspera p {
+    font-size: 28px;
+}
+
+#infoClima {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: rgba(0,0,0,0.6);
+    color: white;
+    padding: 12px 18px;
+    border-radius: 12px;
+    font-size: 16px;
+    z-index: 999;
+}
